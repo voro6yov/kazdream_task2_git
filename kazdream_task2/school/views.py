@@ -5,7 +5,7 @@ from .models import Lesson
 
 class IndexView(generic.ListView):
     template_name = 'index.html'
-    context_object_name = 'lesson'
+    context_object_name = 'lessons'
 
     def get_queryset(self):
-        return Lesson.objects.get()
+        return Lesson.objects.all()

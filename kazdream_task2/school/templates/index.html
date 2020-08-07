@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    {% if lesson %}
-        <h1>{{lesson}}</h1>
-        <h2>{{lesson.teacher}}</h2>
-        {% for pupil in lesson.pupil_set.all %}
-            <li>{{pupil}}</li>
-    {% endfor %}
+    {% if lessons %}
+        {% for lesson in lessons %}
+            <h1>{{lesson}}</h1>
+            <h2>{{lesson.teacher}}</h2>
+            {% for pupil in lesson.pupil_set.all %}
+                <li>{{pupil}}</li>
+            {% endfor %}
+        {% endfor %}
     {% else %}
         <p>No lessons are available.</p>
     {% endif %}
